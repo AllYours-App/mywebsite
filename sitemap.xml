@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ducoinweb.fr/</loc></url>
+  <url><loc>https://ducoinweb.fr/tarifs</loc></url>
+  <url><loc>https://ducoinweb.fr/deroulement</loc></url>
+  <url><loc>https://ducoinweb.fr/faq</loc></url>
+  <url><loc>https://ducoinweb.fr/a-propos</loc></url>
   <url><loc>https://ducoinweb.fr/contact</loc></url>
+  <url><loc>https://ducoinweb.fr/facebook-ou-site-internet</loc></url>
+  <url><loc>https://ducoinweb.fr/fiche-google-business-profile</loc></url>
+  <url><loc>https://ducoinweb.fr/qu-est-ce-qu-un-site-vitrine</loc></url>
+  <url><loc>https://ducoinweb.fr/preparer-son-site</loc></url>
   <url><loc>https://ducoinweb.fr/mentions-legales</loc></url>
   <url><loc>https://ducoinweb.fr/confidentialite</loc></url>
 </urlset>
