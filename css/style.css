@@ -658,6 +658,15 @@ button {
 .pricing_options dd {
   font-weight: 500;
 }
+.pricing_summary {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.pricing_summary > div {
+  padding: 1rem 0;
+  font-size: 1.125rem;
+}
 
 @media (min-width: 40em) {
   .pricing_table {
