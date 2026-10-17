@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact et rendez-vous | P-A Ducoin</title>
   <meta name="description" content="Réservez un appel gratuit pour votre site vitrine, ou écrivez-moi. Devis écrit après l'échange, sans engagement.">
-  <link rel="canonical" href="https://ducoinweb.fr/contact">
-  <meta property="og:url" content="https://ducoinweb.fr/contact">
+  <link rel="canonical" href="https://www.ducoinweb.fr/contact">
+  <meta property="og:url" content="https://www.ducoinweb.fr/contact">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Contact et rendez-vous | P-A Ducoin">
   <meta property="og:description" content="Réservez un appel gratuit pour votre site vitrine, ou écrivez-moi.">
-  <meta property="og:image" content="https://ducoinweb.fr/assets/og-image.png">
+  <meta property="og:image" content="https://www.ducoinweb.fr/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="assets/fonts/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -39,9 +39,10 @@
           <button class="nav_button" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
           <nav class="nav_menu" id="nav-menu" aria-label="Navigation principale">
             <ul class="nav_list">
-              <li><a class="nav_link" href="/#services">Services</a></li>
               <li><a class="nav_link" href="/tarifs">Tarifs</a></li>
-              <li><a class="nav_link" href="/#a-propos">À propos</a></li>
+              <li><a class="nav_link" href="/deroulement">Déroulement</a></li>
+              <li><a class="nav_link" href="/faq">FAQ</a></li>
+              <li><a class="nav_link" href="/a-propos">À propos</a></li>
               <li><a class="nav_link" href="/contact" aria-current="page">Contact</a></li>
             </ul>
             <a class="button" href="#rendez-vous">Prendre rendez-vous</a>
@@ -82,7 +83,8 @@
 
                 <div id="message" class="contact_block contact_block-form">
                   <h2 class="heading-style-h2">Écrire un message</h2>
-                  <form id="contact-form" class="form_component" method="post" novalidate data-endpoint="https://formspree.io/f/xkolvzjo">
+                  <form id="contact-form" class="form_component" method="post" novalidate data-endpoint="https://formspree.io/f/xkolvzjo" data-turnstile-sitekey="">
+                    <!-- À AJOUTER : clé de site Cloudflare Turnstile dans data-turnstile-sitekey (laisser vide = pas de widget). La clé secrète se saisit dans Formspree, jamais ici. -->
                     <div class="form_field">
                       <label class="form_label" for="nom">Nom</label>
                       <input class="form_input" type="text" id="nom" name="nom" autocomplete="name" required aria-describedby="nom-error">
@@ -142,14 +144,21 @@
                 <img class="footer_logo" src="assets/logo-footer.svg" alt="P-A Ducoin, web design et développement" width="240" height="60" loading="lazy" decoding="async">
                 <p class="text-size-small"><a class="footer_link" href="tel:+33771717229">07 71 71 72 29</a></p>
                 <p class="text-size-small"><a class="footer_link" href="mailto:ducoin.co@gmail.com">ducoin.co@gmail.com</a></p>
+                <p class="text-size-small"><a class="footer_link" href="https://www.linkedin.com/in/pierre-antton-ducoin" rel="noopener">LinkedIn</a></p>
               </div>
               <nav class="footer_column" aria-label="Pages du site">
                 <h2 class="footer_title">Le site</h2>
                 <ul class="footer_list">
                   <li><a class="footer_link" href="/#services">Services</a></li>
                   <li><a class="footer_link" href="/tarifs">Tarifs</a></li>
-                  <li><a class="footer_link" href="/#a-propos">À propos</a></li>
+                  <li><a class="footer_link" href="/deroulement">Déroulement</a></li>
+                  <li><a class="footer_link" href="/faq">FAQ</a></li>
+                  <li><a class="footer_link" href="/a-propos">À propos</a></li>
                   <li><a class="footer_link" href="/contact">Contact</a></li>
+                  <li><a class="footer_link" href="/facebook-ou-site-internet">Facebook ou site</a></li>
+                  <li><a class="footer_link" href="/fiche-google-business-profile">Fiche Google</a></li>
+                  <li><a class="footer_link" href="/qu-est-ce-qu-un-site-vitrine">Site vitrine</a></li>
+                  <li><a class="footer_link" href="/preparer-son-site">Préparer son site</a></li>
                 </ul>
               </nav>
               <nav class="footer_column" aria-label="Informations légales">
@@ -157,6 +166,7 @@
                 <ul class="footer_list">
                   <li><a class="footer_link" href="/mentions-legales">Mentions légales</a></li>
                   <li><a class="footer_link" href="/confidentialite">Politique de confidentialité</a></li>
+                  <li><a class="footer_link" href="/cgv">Conditions générales de vente</a></li>
                 </ul>
               </nav>
             </div>

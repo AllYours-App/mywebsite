@@ -9,6 +9,40 @@
   var submitLabel = submit.textContent;
   var openedAt = Date.now(); // sert à repérer les envois trop rapides (robots)
 
+  // Cloudflare Turnstile : actif seulement si data-turnstile-sitekey est renseigné.
+  // Le jeton est vérifié côté serveur par Formspree avec la clé secrète.
+  var siteKey = form.getAttribute('data-turnstile-sitekey');
+  var captchaToken = '';
+  var captchaWidget = null;
+
+  function loadTurnstile() {
+    var box = document.createElement('div');
+    box.className = 'form_captcha';
+    form.insertBefore(box, submit);
+
+    window.ducoinTurnstileReady = function () {
+      captchaWidget = window.turnstile.render(box, {
+        sitekey: siteKey,
+        language: 'fr',
+        callback: function (token) { captchaToken = token; },
+        'expired-callback': function () { captchaToken = ''; },
+        'error-callback': function () {
+          captchaToken = '';
+          status.textContent = 'La vérification anti-robot a échoué. Rechargez la page et réessayez.';
+          status.classList.add('is-error');
+        }
+      });
+    };
+
+    var script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=ducoinTurnstileReady';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
+  if (siteKey) loadTurnstile();
+
   // Règles de validation : un message d'erreur clair par champ
   var rules = [
     {
@@ -93,6 +127,13 @@
       return;
     }
 
+    // Vérification Turnstile : on attend le jeton avant d'envoyer
+    if (siteKey && !captchaToken) {
+      status.textContent = 'Patientez un instant : la vérification anti-robot n\'est pas terminée.';
+      status.classList.add('is-error');
+      return;
+    }
+
     var endpoint = form.getAttribute('data-endpoint');
     if (!endpoint) {
       console.error('Formulaire : renseignez l\'attribut data-endpoint avec l\'URL du service de réception.');
@@ -104,10 +145,13 @@
     submit.disabled = true;
     submit.textContent = 'Envoi en cours';
 
+    var formData = new FormData(form);
+    if (captchaToken) formData.set('cf-turnstile-response', captchaToken);
+
     fetch(endpoint, {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
+      body: formData
     })
       .then(function (response) {
         if (!response.ok) throw new Error('Réponse ' + response.status);
@@ -118,6 +162,8 @@
         status.classList.add('is-error');
         submit.disabled = false;
         submit.textContent = submitLabel;
+        // Un jeton Turnstile ne sert qu'une fois : on en redemande un
+        if (captchaWidget !== null) { captchaToken = ''; window.turnstile.reset(captchaWidget); }
       });
   });
 })();

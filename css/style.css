@@ -1013,6 +1013,11 @@ button {
   display: none;
 }
 
+/* Widget Turnstile : hauteur réservée pour éviter un saut de mise en page */
+.form_captcha {
+  min-height: 65px;
+}
+
 /* Champ piège : hors écran, invisible pour les humains */
 .form_trap {
   position: absolute;

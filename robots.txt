@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ducoinweb.fr/sitemap.xml
+Sitemap: https://www.ducoinweb.fr/sitemap.xml
