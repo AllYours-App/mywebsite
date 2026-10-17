@@ -708,6 +708,30 @@ button {
 .pricing_options dd {
   font-weight: 500;
 }
+.pricing_offers {
+  display: grid;
+  gap: 2rem 3rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+}
+.pricing_offer {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-ink);
+}
+.pricing_offer-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pricing_offer-list li {
+  padding: 0.625rem 0;
+  border-top: 1px solid var(--color-border);
+}
+@media (min-width: 48em) {
+  .pricing_offers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .pricing_summary {
   margin-top: 2rem;
   margin-bottom: 2.5rem;
@@ -770,32 +794,6 @@ button {
   }
   .guarantees_row p {
     grid-column: 5 / span 8;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Pourquoi me confier votre site
-   -------------------------------------------------------------------------- */
-.why_list {
-  display: grid;
-  gap: 2rem 3rem;
-  margin-top: clamp(2rem, 4vw, 3rem);
-}
-.why_item {
-  display: grid;
-  align-content: start;
-  gap: 0.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-ink);
-}
-.why_item dd {
-  max-width: 45ch;
-  color: var(--color-text-secondary);
-}
-
-@media (min-width: 48em) {
-  .why_list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
