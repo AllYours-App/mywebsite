@@ -363,7 +363,7 @@ button {
   margin-top: 1rem;
 }
 
-@media (min-width: 62em) {
+@media (min-width: 70em) {
   .nav_button,
   .js .nav_button { display: none; }
 
@@ -398,6 +398,56 @@ button {
   .nav_logo {
     height: 1.75rem;
   }
+}
+
+/* Téléphone dans l'en-tête : icône seule sur mobile, numéro visible à partir de 80em */
+.nav_phone {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin-left: auto;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-decoration: none;
+}
+.nav_phone:hover {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+}
+.nav_phone-text { display: none; }
+
+.nav_container { column-gap: 0.75rem; }
+
+@media (max-width: 25em) {
+  .nav_container { column-gap: 0.5rem; }
+  .nav_logo { height: 1.25rem; }
+  .nav_button { padding-inline: 0.75rem; }
+}
+
+@media (min-width: 70em) {
+  .nav_phone { display: none; }
+  .nav_container { column-gap: 1.5rem; }
+}
+@media (min-width: 80em) {
+  .nav_phone {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    border-color: transparent;
+  }
+  .nav_phone:hover {
+    background-color: transparent;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+  .nav_phone-icon { display: none; }
+  .nav_phone-text { display: inline; }
 }
 
 /* --------------------------------------------------------------------------
@@ -912,6 +962,40 @@ button {
   .footer_layout {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Réalisations
+   -------------------------------------------------------------------------- */
+.realisations_item {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+.realisations_item + .realisations_item {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+.realisations_image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.realisations_content .heading-style-h3 {
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 62em) {
+  .realisations_item {
+    grid-template-columns: 7fr 5fr;
+    gap: 3rem;
+  }
+  .realisations_item.is-reversed {
+    grid-template-columns: 5fr 7fr;
+  }
+  .realisations_item.is-reversed .realisations_figure {
+    order: 2;
   }
 }
 

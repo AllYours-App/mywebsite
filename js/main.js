@@ -4,7 +4,7 @@
   var menu = document.getElementById('nav-menu');
   if (!button || !menu) return;
 
-  var desktop = window.matchMedia('(min-width: 62em)');
+  var desktop = window.matchMedia('(min-width: 70em)');
 
   function setOpen(open) {
     menu.classList.toggle('is-open', open);
