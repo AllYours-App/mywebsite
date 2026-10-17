@@ -798,6 +798,32 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   Pourquoi me confier votre site
+   -------------------------------------------------------------------------- */
+.why_list {
+  display: grid;
+  gap: 2rem 3rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.why_item {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-ink);
+}
+.why_item dd {
+  max-width: 45ch;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 48em) {
+  .why_list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
    À propos
    -------------------------------------------------------------------------- */
 .section_about {
@@ -810,6 +836,29 @@ button {
 .about_content {
   display: grid;
   gap: 1.25rem;
+}
+.about_profile {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+.about_text {
+  display: grid;
+  gap: 1rem;
+}
+.about_photo {
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+@media (min-width: 62em) {
+  .about_profile {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    gap: 3rem;
+  }
 }
 
 @media (min-width: 62em) {
